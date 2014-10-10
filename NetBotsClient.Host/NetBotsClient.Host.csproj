@@ -149,7 +149,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\Bot.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -206,7 +206,16 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\core\NetBots.Bot.Interface\NetBots.Bot.Interface.csproj">
+      <Project>{d9526b9d-c0f6-408c-934c-b7e99112101f}</Project>
+      <Name>NetBots.Bot.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NetBotsClient.Ai\NetBotsClient.Ai.csproj">
+      <Project>{29f439f2-6789-4846-a682-7e81abce414d}</Project>
+      <Name>NetBotsClient.Ai</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

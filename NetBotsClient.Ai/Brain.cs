@@ -32,7 +32,7 @@ namespace NetBotsClient.Ai
             return myMoves;
         }
 
-        public Square GetNextSquareToTarget(Square targetSquare, IEnumerable<Square> possibleMoves)
+        private Square GetNextSquareToTarget(Square targetSquare, IEnumerable<Square> possibleMoves)
         {
             int shortestDistance = int.MaxValue;
             Square squareToMoveTo = null;
@@ -48,7 +48,7 @@ namespace NetBotsClient.Ai
             return squareToMoveTo;
         }
 
-        public BotletMove CreateMoveFromSquares(Square origin, Square destination)
+        private BotletMove CreateMoveFromSquares(Square origin, Square destination)
         {
             var move = new BotletMove();
             move.from = origin.LineIndex;

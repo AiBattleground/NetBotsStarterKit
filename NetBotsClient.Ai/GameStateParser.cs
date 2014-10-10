@@ -8,7 +8,7 @@ using NetBotsClient.Models;
 
 namespace NetBotsClient.Ai
 {
-    class GameStateParser
+    public class GameStateParser
     {
         public static GameBoard Parse(GameState gameState)
         {
@@ -29,6 +29,7 @@ namespace NetBotsClient.Ai
             Grid.MapGridValue('b', SquareType.EnemyBot);
             Grid.MapGridValue('*', SquareType.Energy);
             Grid.MapGridValue('x', SquareType.DeathMarker);
+            Grid.MapGridValue('.', SquareType.Empty);
             var grid = new Grid(request.cols, request.rows, request);
             return grid;
         }

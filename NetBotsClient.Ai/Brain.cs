@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using NetBots.Bot.Interface;
 using NetBotsClient.Models;
 
+
+//CHANGE THIS TO PREVENT COLLISIONS IF YOU'RE SUBMITTING YOUR DLL.
 namespace NetBotsClient.Ai
 {
     public class Brain : INetBot

@@ -14,11 +14,11 @@ namespace NetBotsClient.Test
         private GameState CreateSampleGameState()
         {
             GameState gs = new GameState();
-            gs.cols = 20;
-            gs.rows = 20;
-            gs.maxTurns = 10;
-            gs.turnsElapsed = 1;
-            gs.grid = "...................r" +
+            gs.Cols = 20;
+            gs.Rows = 20;
+            gs.MaxTurns = 10;
+            gs.TurnsElapsed = 1;
+            gs.Grid = "...................r" +
                       "...................." +
                       "...................." +
                       "...*................" +
@@ -38,8 +38,8 @@ namespace NetBotsClient.Test
                       "...................." +
                       ".........b.........." +
                       ".........b..........";
-            gs.p1 = GetSamplePlaner(0, false);
-            gs.p2 = GetSamplePlaner(gs.grid.Length - 1, false);
+            gs.P1 = GetSamplePlaner(0, false);
+            gs.P2 = GetSamplePlaner(gs.Grid.Length - 1, false);
             return gs;
         }
 
@@ -57,7 +57,12 @@ namespace NetBotsClient.Test
         public void CanCreateGame()
         {
             var gameState = CreateSampleGameState();
-            var game = GameStateParser.Parse(gameState);
+            var moveRequest = new MoveRequest()
+            {
+                Player = "P1",
+                State = gameState
+            };
+            var game = GameStateParser.Parse(moveRequest);
             Assert.IsNotNull(game);
         }
 
@@ -65,7 +70,12 @@ namespace NetBotsClient.Test
         public void SquaresAreAdjacent()
         {
             var gameState = CreateSampleGameState();
-            var game = GameStateParser.Parse(gameState);
+            var moveRequest = new MoveRequest()
+            {
+                Player = "P1",
+                State = gameState
+            };
+            var game = GameStateParser.Parse(moveRequest);
             Assert.IsTrue(game.Grid[0, 19].IsAdjacentTo(game.Grid[0, 18]));
         }
 
@@ -78,9 +88,14 @@ namespace NetBotsClient.Test
             if (brain.Name == "Berserker Bot!")
             {
                 var gameState = CreateSampleGameState();
-                var moves = brain.GetMoves(gameState);
+                var moveRequest = new MoveRequest()
+                {
+                    Player = "P1",
+                    State = gameState
+                };
+                var moves = brain.GetMoves(moveRequest);
                 var move = moves.First();
-                Assert.IsTrue(move.from == 19 && move.to == 39);
+                Assert.IsTrue(move.From == 19 && move.To == 39);
             }
             
         }

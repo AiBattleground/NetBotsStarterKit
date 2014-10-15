@@ -61,7 +61,7 @@ namespace NetBotsClient.Models
 
         private void Initialize(GameState gameState)
         {
-            var gridString = gameState.grid;
+            var gridString = gameState.Grid;
             for (int i = 0; i < gridString.Length; i++)
             {
                 int col = (int) Math.Floor((double) (i)/this.Width);
@@ -69,15 +69,15 @@ namespace NetBotsClient.Models
                 char gridChar = gridString[i];
                 var square = this[row, col];
                 square.SquareType = CharSquareAssociation[gridChar];
-                if (square.LineIndex == gameState.p1.spawn)
+                if (square.LineIndex == gameState.P1.spawn)
                 {
                     MySpawn = square;
-                    MySpawnActive = !gameState.p1.spawnDisabled;
+                    MySpawnActive = !gameState.P1.spawnDisabled;
                 }
-                else if (square.LineIndex == gameState.p2.spawn)
+                else if (square.LineIndex == gameState.P2.spawn)
                 {
                     EnemySpawn = square;
-                    EnemySpawnActive = !gameState.p1.spawnDisabled;
+                    EnemySpawnActive = !gameState.P1.spawnDisabled;
                 }
             }
         }

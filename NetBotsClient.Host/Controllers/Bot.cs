@@ -11,10 +11,10 @@ namespace NetBotsClient.Host.Controllers
     public class Bot : ApiController
     {
         // POST api/bot
-        public IHttpActionResult Post(GameState gameState)
+        public IHttpActionResult Post(MoveRequest request)
         {
             INetBot robot = new Ai.Brain();
-            var moves = robot.GetMoves(gameState);
+            var moves = robot.GetMoves(request);
             return Ok(moves);
         }
     }

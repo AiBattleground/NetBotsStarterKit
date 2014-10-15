@@ -207,7 +207,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\core\NetBots.Bot.Interface\NetBots.Bot.Interface.csproj">
+    <ProjectReference Include="..\core\Source\Clients\NetBots.Bot.Interface\NetBots.Bot.Interface.csproj">
       <Project>{d9526b9d-c0f6-408c-934c-b7e99112101f}</Project>
       <Name>NetBots.Bot.Interface</Name>
     </ProjectReference>

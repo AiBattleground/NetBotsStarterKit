@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using NetBots.Bot.Interface;
 using NetBotsClient.Models;
@@ -13,30 +14,50 @@ namespace NetBotsClient.Ai
         public static GameBoard Parse(MoveRequest request)
         {
             var gameState = request.State;
+            Grid myGrid = GetGrid(request);
             var game = new GameBoard
             {
-                MyEnergy = request.Player == "P1" ? gameState.P1.energy : gameState.P2.energy,
-                EnemyEnergy = request.Player == "P2" ? gameState.P1.energy : gameState.P2.energy,
-                Grid = CreateGrid(request),
+                MyEnergy = request.Player == "P1" ? gameState.P1.Energy : gameState.P2.Energy,
+                EnemyEnergy = request.Player == "P2" ? gameState.P1.Energy : gameState.P2.Energy,
                 Turn = gameState.TurnsElapsed,
-                TurnLimit = gameState.MaxTurns
+                TurnLimit = gameState.MaxTurns,
+                Grid = myGrid
             };
             return game;
         }
 
-        public static Grid CreateGrid(MoveRequest request)
+        public static Grid GetGrid(MoveRequest request)
         {
-            char myChar = request.Player == "P1" ? '1' : '2';
-            char enemyChar = request.Player == "P2" ? '1' : '2';
-     
-            Grid.MapGridValue(myChar, SquareType.PlayerBot);
-            Grid.MapGridValue(enemyChar, SquareType.EnemyBot);
-            Grid.MapGridValue('*', SquareType.Energy);
-            Grid.MapGridValue('x', SquareType.DeathMarker);
-            Grid.MapGridValue('X', SquareType.DeathMarker);
-            Grid.MapGridValue('.', SquareType.Empty);
-            var grid = new Grid(request.State.Cols, request.State.Rows, request.State);
-            return grid;
+            var me = request.Player.ToLower() == "p1" ? request.State.P1 : request.State.P2;
+            var enemy = request.Player.ToLower() == "p2" ? request.State.P1 : request.State.P2;
+            var myDic = GetCharDic(request);
+            var myGrid = new Grid(request.State.Cols, request.State.Rows, me.Spawn, enemy.Spawn, x =>
+            {
+                char myChar = request.State.Grid[x.LineIndex];
+                x.SquareType = myDic[myChar];
+            });
+            myGrid.MySpawnActive = !me.SpawnDisabled;
+            myGrid.EnemySpawnActive = !enemy.SpawnDisabled;
+            return myGrid;
         }
+
+
+        public static Dictionary<char, SquareType> GetCharDic(MoveRequest request)
+        {
+            var myDic = new Dictionary<char, SquareType>();
+
+            char myChar = request.Player.ToLower() == "p1" ? '1' : '2';
+            char enemyChar = request.Player.ToLower() == "p2" ? '1' : '2';
+
+            myDic.Add(myChar, SquareType.PlayerBot);
+            myDic.Add(enemyChar, SquareType.EnemyBot);
+            myDic.Add('*', SquareType.Energy);
+            myDic.Add('x', SquareType.DeathMarker);
+            myDic.Add('X', SquareType.DeathMarker);
+            myDic.Add('.', SquareType.Empty);
+
+            return myDic;
+        } 
+
     }
 }

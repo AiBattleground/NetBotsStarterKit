@@ -18,7 +18,7 @@ namespace NetBotsClient.Test
             gs.Rows = 20;
             gs.MaxTurns = 10;
             gs.TurnsElapsed = 1;
-            gs.Grid = "...................r" +
+            gs.Grid = "...................1" +
                       "...................." +
                       "...................." +
                       "...*................" +
@@ -36,8 +36,8 @@ namespace NetBotsClient.Test
                       "...................." +
                       "...................." +
                       "...................." +
-                      ".........b.........." +
-                      ".........b..........";
+                      ".........2.........." +
+                      ".........2..........";
             gs.P1 = GetSamplePlaner(0, false);
             gs.P2 = GetSamplePlaner(gs.Grid.Length - 1, false);
             return gs;
@@ -46,9 +46,9 @@ namespace NetBotsClient.Test
         private Player GetSamplePlaner(int spawnLoc, bool spawnDisabled)
         {
             var player = new Player();
-            player.energy = 0;
-            player.spawn = spawnLoc;
-            player.spawnDisabled = spawnDisabled;
+            player.Energy = 0;
+            player.Spawn = spawnLoc;
+            player.SpawnDisabled = spawnDisabled;
             return player;
         }
 

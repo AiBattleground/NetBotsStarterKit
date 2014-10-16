@@ -70,14 +70,6 @@ namespace NetBotsClient.Models
             return (Math.Abs(this._x - otherSquare._x) + Math.Abs(this._y - otherSquare._y));
         }
 
-        public Square NextSpaceToTarget(Square target)
-        {
-            if (Math.Abs(this.X - target.X) > Math.Abs(this.Y - target.Y))
-                return target.X > this.X ? _grid[X + 1, Y] : _grid[X - 1, Y];
-            else
-                return target.Y > this.Y ? _grid[X, Y + 1] : _grid[X, Y - 1];
-        }
-
         public override string ToString()
         {
             var squareText = SquareType == SquareType.Empty ? "" : SquareType.ToString();

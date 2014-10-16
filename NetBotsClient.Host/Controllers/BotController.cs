@@ -8,10 +8,10 @@ using NetBots.Bot.Interface;
 
 namespace NetBotsClient.Host.Controllers
 {
-    public class Bot : ApiController
+    public class BotController : ApiController
     {
-        // POST api/bot
-        public IHttpActionResult Post(MoveRequest request)
+        [HttpPost]
+        public IHttpActionResult GetMove(MoveRequest request)
         {
             INetBot robot = new Ai.Brain();
             var moves = robot.GetMoves(request);

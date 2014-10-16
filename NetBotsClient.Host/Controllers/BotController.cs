@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using NetBots.Bot.Interface;
+using NetBotsClient.Ai;
 
 namespace NetBotsClient.Host.Controllers
 {
@@ -13,7 +14,7 @@ namespace NetBotsClient.Host.Controllers
         [HttpPost]
         public IHttpActionResult GetMove(MoveRequest request)
         {
-            INetBot robot = new Ai.Brain();
+            INetBot robot = new RandomBot();
             var moves = robot.GetMoves(request);
             return Ok(moves);
         }

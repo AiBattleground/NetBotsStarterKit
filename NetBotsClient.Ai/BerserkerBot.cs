@@ -11,7 +11,7 @@ using NetBotsClient.Models;
 //CHANGE THIS TO PREVENT COLLISIONS IF YOU'RE SUBMITTING YOUR DLL.
 namespace NetBotsClient.Ai
 {
-    public class Brain : INetBot
+    public class BerserkerBot : INetBot
     {
         public string Name { get { return "Berserker Bot!"; }}
         public string Color { get { return "Pink"; } }

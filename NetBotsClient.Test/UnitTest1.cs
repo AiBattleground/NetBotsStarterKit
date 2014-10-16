@@ -84,7 +84,7 @@ namespace NetBotsClient.Test
         [TestMethod]
         public void Berserks()
         {
-            var brain = new Brain();
+            var brain = new BerserkerBot();
             if (brain.Name == "Berserker Bot!")
             {
                 var gameState = CreateSampleGameState();

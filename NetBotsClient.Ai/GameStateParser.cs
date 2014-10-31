@@ -17,8 +17,8 @@ namespace NetBotsClient.Ai
             Grid myGrid = GetGrid(request);
             var game = new GameBoard
             {
-                MyEnergy = request.Player == "P1" ? gameState.P1.Energy : gameState.P2.Energy,
-                EnemyEnergy = request.Player == "P2" ? gameState.P1.Energy : gameState.P2.Energy,
+                MyEnergy = request.Player.ToLower() == "p1" ? gameState.P1.Energy : gameState.P2.Energy,
+                EnemyEnergy = request.Player.ToLower() == "p2" ? gameState.P1.Energy : gameState.P2.Energy,
                 Turn = gameState.TurnsElapsed,
                 TurnLimit = gameState.MaxTurns,
                 Grid = myGrid

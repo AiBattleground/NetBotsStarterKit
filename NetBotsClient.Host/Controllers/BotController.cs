@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using NetBots.Bot.Interface;
 using NetBotsClient.Ai;
 
 namespace NetBotsClient.Host.Controllers
 {
+    [EnableCors("*", "*", "*")]
     public class BotController : ApiController
     {
         [HttpPost]

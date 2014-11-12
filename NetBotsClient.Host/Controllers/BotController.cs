@@ -6,9 +6,9 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using NetBots.Bot.Interface;
 using NetBots.Web;
 using NetBotsClient.Ai;
+using NetBotsClient.Host.Models;
 
 namespace NetBotsClient.Host.Controllers
 {
@@ -16,9 +16,10 @@ namespace NetBotsClient.Host.Controllers
     public class BotController : ApiController
     {
         [HttpPost]
-        public IHttpActionResult GetMove(MoveRequest request)
+        [Route("{botName}")]
+        public IHttpActionResult GetMoveBerserker(string botName, MoveRequest request)
         {
-            INetBot robot = new RandomBot();
+            IRobot robot = BotRepository.Instance.GetBot(botName);
             var moves = robot.GetMoves(request);
             return Ok(moves);
         }

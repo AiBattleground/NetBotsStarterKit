@@ -4,7 +4,6 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using NetBots.Bot.Interface;
 using NetBotsClient.Models;
 using NetBots.Web;
 
@@ -12,10 +11,8 @@ using NetBots.Web;
 //CHANGE THIS TO PREVENT COLLISIONS IF YOU'RE SUBMITTING YOUR DLL.
 namespace NetBotsClient.Ai
 {
-    public class BerserkerBot : INetBot
+    public class BerserkerBot : IRobot
     {
-        public string Name { get { return "Berserker Bot!"; }}
-        public string Color { get { return "Pink"; } }
         public IEnumerable<BotletMove> GetMoves(MoveRequest request)
         {
             var game = GameStateParser.Parse(request);

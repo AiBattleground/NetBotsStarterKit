@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetBotsClient.Ai", "NetBots
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetBotsClient.Test", "NetBotsClient.Test\NetBotsClient.Test.csproj", "{0927C320-5F53-48C8-BC04-252AFE4A2BCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetBots.Bot.Interface", "core\Source\Clients\NetBots.Bot.Interface\NetBots.Bot.Interface.csproj", "{D9526B9D-C0F6-408C-934C-B7E99112101F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetBots.Web", "core\Source\Engine\NetBots.Web\NetBots.Web.csproj", "{96ADD411-CEDB-4089-8E9A-02257175D90F}"
 EndProject
 Global
@@ -37,10 +35,6 @@ Global
 		{0927C320-5F53-48C8-BC04-252AFE4A2BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0927C320-5F53-48C8-BC04-252AFE4A2BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0927C320-5F53-48C8-BC04-252AFE4A2BCF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D9526B9D-C0F6-408C-934C-B7E99112101F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D9526B9D-C0F6-408C-934C-B7E99112101F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D9526B9D-C0F6-408C-934C-B7E99112101F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D9526B9D-C0F6-408C-934C-B7E99112101F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{96ADD411-CEDB-4089-8E9A-02257175D90F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{96ADD411-CEDB-4089-8E9A-02257175D90F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96ADD411-CEDB-4089-8E9A-02257175D90F}.Release|Any CPU.ActiveCfg = Release|Any CPU

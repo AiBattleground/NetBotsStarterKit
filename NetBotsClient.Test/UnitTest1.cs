@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Runtime.InteropServices;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NetBots.Bot.Interface;
 using NetBots.Web;
 using NetBotsClient.Ai;
 using NetBotsClient.Models;
@@ -86,19 +85,15 @@ namespace NetBotsClient.Test
         public void Berserks()
         {
             var brain = new BerserkerBot();
-            if (brain.Name == "Berserker Bot!")
+            var gameState = CreateSampleGameState();
+            var moveRequest = new MoveRequest()
             {
-                var gameState = CreateSampleGameState();
-                var moveRequest = new MoveRequest()
-                {
-                    Player = "P1",
-                    State = gameState
-                };
-                var moves = brain.GetMoves(moveRequest);
-                var move = moves.First();
-                Assert.IsTrue(move.From == 19 && move.To == 39);
-            }
-            
+                Player = "P1",
+                State = gameState
+            };
+            var moves = brain.GetMoves(moveRequest);
+            var move = moves.First();
+            Assert.IsTrue(move.From == 19 && move.To == 39);
         }
     }
 }

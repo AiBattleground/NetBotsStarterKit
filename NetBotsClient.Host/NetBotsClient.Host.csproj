@@ -122,7 +122,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -162,6 +161,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BotRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -218,10 +218,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\core\Source\Clients\NetBots.Bot.Interface\NetBots.Bot.Interface.csproj">
-      <Project>{d9526b9d-c0f6-408c-934c-b7e99112101f}</Project>
-      <Name>NetBots.Bot.Interface</Name>
-    </ProjectReference>
     <ProjectReference Include="..\core\Source\Engine\NetBots.Web\NetBots.Web.csproj">
       <Project>{96add411-cedb-4089-8e9a-02257175d90f}</Project>
       <Name>NetBots.Web</Name>

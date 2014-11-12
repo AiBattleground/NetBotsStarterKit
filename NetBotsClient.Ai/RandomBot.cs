@@ -3,17 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NetBots.Bot.Interface;
 using NetBotsClient.Models;
 using NetBots.Web;
 
 namespace NetBotsClient.Ai
 {
-    public class RandomBot : INetBot
+    public class RandomBot : IRobot
     {
-        public string Name { get; private set; }
-        public string Color { get; private set; }
-
         public IEnumerable<BotletMove> GetMoves(MoveRequest request)
         {
             var game = GameStateParser.Parse(request);

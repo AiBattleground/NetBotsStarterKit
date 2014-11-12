@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{533E848F-1DDD-4E33-A268-963E48018425}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NetBotsWebServer.Data.MsSql</RootNamespace>
+    <AssemblyName>NetBotsWebServer.Data.MsSql</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationDBContext.cs" />
+    <Compile Include="Migrations\201410220037228_InitialCreate.cs" />
+    <Compile Include="Migrations\201410220037228_InitialCreate.Designer.cs">
+      <DependentUpon>201410220037228_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410220121063_Added_Models.cs" />
+    <Compile Include="Migrations\201410220121063_Added_Models.Designer.cs">
+      <DependentUpon>201410220121063_Added_Models.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410262303583_Moving Record into PlayerBot.cs" />
+    <Compile Include="Migrations\201410262303583_Moving Record into PlayerBot.Designer.cs">
+      <DependentUpon>201410262303583_Moving Record into PlayerBot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410262333103_AddUserIdtoPlayerBot.cs" />
+    <Compile Include="Migrations\201410262333103_AddUserIdtoPlayerBot.Designer.cs">
+      <DependentUpon>201410262333103_AddUserIdtoPlayerBot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410301331389_AddedPlayerBotsToUser.cs" />
+    <Compile Include="Migrations\201410301331389_AddedPlayerBotsToUser.Designer.cs">
+      <DependentUpon>201410301331389_AddedPlayerBotsToUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410301458456_CreatedGameHistoryClass.cs" />
+    <Compile Include="Migrations\201410301458456_CreatedGameHistoryClass.Designer.cs">
+      <DependentUpon>201410301458456_CreatedGameHistoryClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410301748290_GameHistory.cs" />
+    <Compile Include="Migrations\201410301748290_GameHistory.Designer.cs">
+      <DependentUpon>201410301748290_GameHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410301755106_GameHistoryUpdated.cs" />
+    <Compile Include="Migrations\201410301755106_GameHistoryUpdated.Designer.cs">
+      <DependentUpon>201410301755106_GameHistoryUpdated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410301808547_GameHistoryUpdatedAgain.cs" />
+    <Compile Include="Migrations\201410301808547_GameHistoryUpdatedAgain.Designer.cs">
+      <DependentUpon>201410301808547_GameHistoryUpdatedAgain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410301822569_ForeignKeyOnPlayerBots.cs" />
+    <Compile Include="Migrations\201410301822569_ForeignKeyOnPlayerBots.Designer.cs">
+      <DependentUpon>201410301822569_ForeignKeyOnPlayerBots.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410310049253_KeithDub.cs" />
+    <Compile Include="Migrations\201410310049253_KeithDub.Designer.cs">
+      <DependentUpon>201410310049253_KeithDub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410311538373_PlayerBots_Privacy_Settings.cs" />
+    <Compile Include="Migrations\201410311538373_PlayerBots_Privacy_Settings.Designer.cs">
+      <DependentUpon>201410311538373_PlayerBots_Privacy_Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201411011553239_Remove_Unused_Bot_Recrds.cs" />
+    <Compile Include="Migrations\201411011553239_Remove_Unused_Bot_Recrds.Designer.cs">
+      <DependentUpon>201411011553239_Remove_Unused_Bot_Recrds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NetBots.WebServer.Model\NetBots.WebServer.Model.csproj">
+      <Project>{88f05e4e-7146-44b9-ba3d-2ed19efd9411}</Project>
+      <Name>NetBots.WebServer.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201410220037228_InitialCreate.resx">
+      <DependentUpon>201410220037228_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410220121063_Added_Models.resx">
+      <DependentUpon>201410220121063_Added_Models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410262303583_Moving Record into PlayerBot.resx">
+      <DependentUpon>201410262303583_Moving Record into PlayerBot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410262333103_AddUserIdtoPlayerBot.resx">
+      <DependentUpon>201410262333103_AddUserIdtoPlayerBot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410301331389_AddedPlayerBotsToUser.resx">
+      <DependentUpon>201410301331389_AddedPlayerBotsToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410301458456_CreatedGameHistoryClass.resx">
+      <DependentUpon>201410301458456_CreatedGameHistoryClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410301748290_GameHistory.resx">
+      <DependentUpon>201410301748290_GameHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410301755106_GameHistoryUpdated.resx">
+      <DependentUpon>201410301755106_GameHistoryUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410301808547_GameHistoryUpdatedAgain.resx">
+      <DependentUpon>201410301808547_GameHistoryUpdatedAgain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410301822569_ForeignKeyOnPlayerBots.resx">
+      <DependentUpon>201410301822569_ForeignKeyOnPlayerBots.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410310049253_KeithDub.resx">
+      <DependentUpon>201410310049253_KeithDub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410311538373_PlayerBots_Privacy_Settings.resx">
+      <DependentUpon>201410311538373_PlayerBots_Privacy_Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411011553239_Remove_Unused_Bot_Recrds.resx">
+      <DependentUpon>201411011553239_Remove_Unused_Bot_Recrds.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

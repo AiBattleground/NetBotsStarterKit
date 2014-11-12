@@ -1,0 +1,54 @@
+﻿@model IEnumerable<PlayerBotViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "NewBot", "Manage")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Owner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rank)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MatchHistory)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Owner)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.Rank)
+        </td>
+        <td>
+            @Html.ActionLink("Match History", "GameHistory", new{botId = item.Id}, null)
+        </td>
+        <td>
+            @{
+                if (item.OwnedByUser)
+                {
+                    @Html.ActionLink("Edit", "EditBot", "Manage", new { id = item.Id }, null)
+                }
+             }
+        </td>
+    </tr>
+}
+
+</table>

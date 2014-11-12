@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NetBots.Bot.Interface;
 using NetBotsClient.Models;
+using NetBots.Web;
 
 namespace NetBotsClient.Ai
 {

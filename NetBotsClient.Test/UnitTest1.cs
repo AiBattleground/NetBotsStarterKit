@@ -3,6 +3,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NetBots.Bot.Interface;
+using NetBots.Web;
 using NetBotsClient.Ai;
 using NetBotsClient.Models;
 

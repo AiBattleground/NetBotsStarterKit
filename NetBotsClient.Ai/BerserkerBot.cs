@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NetBots.Bot.Interface;
 using NetBotsClient.Models;
+using NetBots.Web;
 
 
 //CHANGE THIS TO PREVENT COLLISIONS IF YOU'RE SUBMITTING YOUR DLL.

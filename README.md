@@ -1,15 +1,13 @@
-NetBotsClient
+NetBotsStarterKit
 =============
 
 A Starter Kit For Netbots
 
 This Solution has everything you need to get started buliding your very own Netbot. See the main project [here](https://github.com/Pabreetzio/BotWars) for full details.
 
-A really dumb sample bot ("Berserker Bot!") is included.  
+These two bots are at http://rooturl.com/berserkerbot and http://rooturl.com/randombot. Any bots you create will be available at http://rooturl.com/yourBotClassName automatically so long as it implements the IRobot interface.
 
-If you plan to create your Netbot via a DLL, you can safely remove the NetBots.Host project from the solution.
-
-Netbots Client code is licensed under the MIT license. Code from the referenced Botwars project found in the /core folder is licensed separately by that project.
+NetBotsStarterKit code is licensed under the MIT license. Code from the referenced Botwars project found in the /core folder is licensed separately by that project.
 
 ###License (ie, boring legal stuff)
 

@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using NetBotsClient.Models;
 using NetBots.Web;
-
+using NetBotsClient.Models;
 
 //CHANGE THIS TO PREVENT COLLISIONS IF YOU'RE SUBMITTING YOUR DLL.
-namespace NetBotsClient.Ai
+namespace NetBotsClient.Ai.DemoBots
 {
     public class BerserkerBot : IRobot
     {

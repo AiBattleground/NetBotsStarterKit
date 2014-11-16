@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NetBotsClient.Models;
 using NetBots.Web;
+using NetBotsClient.Models;
 
-namespace NetBotsClient.Ai
+namespace NetBotsClient.Ai.DemoBots
 {
     public class RandomBot : IRobot
     {

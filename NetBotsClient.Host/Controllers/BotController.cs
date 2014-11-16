@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using Microsoft.Ajax.Utilities;
 using NetBots.Web;
 using NetBotsClient.Ai;
 using NetBotsClient.Host.Models;
@@ -17,11 +18,22 @@ namespace NetBotsClient.Host.Controllers
     {
         [HttpPost]
         [Route("{botName}")]
-        public IHttpActionResult GetMoveBerserker(string botName, MoveRequest request)
+        public IHttpActionResult GetMove(string botName, MoveRequest request)
         {
-            IRobot robot = BotRepository.Instance.GetBot(botName);
-            var moves = robot.GetMoves(request);
-            return Ok(moves);
+            IRobot robot = BotRegistry.GetBot(botName, request.State.GameId);
+            if (robot != null)
+            {
+                try
+                {
+                    var moves = robot.GetMoves(request);
+                    return Ok(moves);
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
+            }
+            return BadRequest("Could not find bot named " + botName);
         }
     }
 }

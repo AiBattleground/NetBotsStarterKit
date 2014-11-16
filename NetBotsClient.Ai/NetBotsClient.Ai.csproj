@@ -39,11 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BerserkerBot.cs" />
+    <Compile Include="DemoBots\BerserkerBot.cs" />
     <Compile Include="GameStateParser.cs" />
     <Compile Include="IRobot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RandomBot.cs" />
+    <Compile Include="DemoBots\RandomBot.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\core\Source\Engine\NetBots.Web\NetBots.Web.csproj">
@@ -54,6 +54,9 @@
       <Project>{c7fde4bd-a9b7-4b17-a740-1fcdc975f591}</Project>
       <Name>NetBotsClient.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="WorkshopBots\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

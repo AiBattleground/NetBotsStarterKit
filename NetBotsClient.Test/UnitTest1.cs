@@ -4,6 +4,7 @@ using System.Runtime.InteropServices;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NetBots.Web;
 using NetBotsClient.Ai;
+using NetBotsClient.Ai.DemoBots;
 using NetBotsClient.Models;
 
 namespace NetBotsClient.Test

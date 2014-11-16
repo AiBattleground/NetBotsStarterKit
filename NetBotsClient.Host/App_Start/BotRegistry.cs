@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.NetworkInformation;
 using NetBotsClient.Ai;
 
-namespace NetBotsClient.Host.Models
+namespace NetBotsClient.Host
 {
     public static class BotRegistry
     {
@@ -12,17 +11,17 @@ namespace NetBotsClient.Host.Models
         private static readonly Dictionary<string, Type> TypeRepo = new Dictionary<string, Type>();
 
 
-        public static IRobot GetBot(string botName, string gameId)
+        public static IRobot GetBot(string botName, string botKey)
         {
-            if (InstanceRepo.ContainsKey(gameId))
+            if (InstanceRepo.ContainsKey(botKey))
             {
-                return InstanceRepo[gameId];
+                return InstanceRepo[botKey];
             }
             if (TypeRepo.ContainsKey(botName))
             {
                 var myType = TypeRepo[botName.ToLower()];
                 IRobot instance = (IRobot)Activator.CreateInstance(myType);
-                InstanceRepo[gameId] = instance;
+                InstanceRepo[botKey] = instance;
                 return instance;
             }
             return null;

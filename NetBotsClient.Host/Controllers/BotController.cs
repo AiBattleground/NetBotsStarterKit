@@ -9,7 +9,6 @@ using System.Web.Http.Cors;
 using Microsoft.Ajax.Utilities;
 using NetBots.Web;
 using NetBotsClient.Ai;
-using NetBotsClient.Host.Models;
 
 namespace NetBotsClient.Host.Controllers
 {
@@ -20,7 +19,8 @@ namespace NetBotsClient.Host.Controllers
         [Route("{botName}")]
         public IHttpActionResult GetMove(string botName, MoveRequest request)
         {
-            IRobot robot = BotRegistry.GetBot(botName, request.State.GameId);
+            var botKey = request.State.GameId + request.Player;
+            IRobot robot = BotRegistry.GetBot(botName, botKey);
             if (robot != null)
             {
                 try

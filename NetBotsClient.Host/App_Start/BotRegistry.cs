@@ -13,6 +13,7 @@ namespace NetBotsClient.Host
 
         public static IRobot GetBot(string botName, string botKey)
         {
+            botKey = botKey.ToLower();
             if (InstanceRepo.ContainsKey(botKey))
             {
                 return InstanceRepo[botKey];
@@ -27,28 +28,7 @@ namespace NetBotsClient.Host
             return null;
         }
 
-        //    botName = botName.ToLower();
-        //    if (BotRepo.ContainsKey(botName))
-        //    {
-        //        return BotRepo[botName];
-        //    }
-        //    else
-        //    {
-        //        var type = typeof (IRobot);
-        //        var types = AppDomain.CurrentDomain.GetAssemblies()
-        //                    .SelectMany(x => x.GetTypes())
-        //                    .Where(type.IsAssignableFrom);
-        //        var robot = types.FirstOrDefault(r => r.Name.ToLower() == botName);
-                
-        //        if (robot != null)
-        //        {
-        //            IRobot instance = (IRobot) Activator.CreateInstance(robot);
-        //            BotRepo[botName] = instance;
-        //            return instance;
-        //        }
-        //    }
-        //    return null;
-        //}
+
 
         public static void RegisterAllBots()
         {

@@ -39,11 +39,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArmyBot\Assault.cs" />
+    <Compile Include="ArmyBot\Trooper.cs" />
+    <Compile Include="ArmyBot\Assassain.cs" />
+    <Compile Include="ArmyBot\Sentry.cs" />
     <Compile Include="DemoBots\BerserkerBot.cs" />
+    <Compile Include="ExtensionMethods.cs" />
     <Compile Include="GameStateParser.cs" />
     <Compile Include="IRobot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DemoBots\RandomBot.cs" />
+    <Compile Include="ArmyBot\Soldier.cs" />
+    <Compile Include="ArmyBot\ArmyBot.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\core\Source\Engine\NetBots.Web\NetBots.Web.csproj">

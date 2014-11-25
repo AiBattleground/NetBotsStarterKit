@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -31,11 +32,12 @@ namespace NetBotsClient.Ai
             var me = request.Player.ToLower() == "p1" ? request.State.P1 : request.State.P2;
             var enemy = request.Player.ToLower() == "p2" ? request.State.P1 : request.State.P2;
             var myDic = GetCharDic(request);
-            var myGrid = new Grid(request.State.Cols, request.State.Rows, me.Spawn, enemy.Spawn, x =>
-            {
-                char myChar = request.State.Grid[x.LineIndex];
-                x.SquareType = myDic[myChar];
-            });
+            var myGrid = new Grid(request.State.Cols, request.State.Rows, me.Spawn, enemy.Spawn,
+                x =>
+                {
+                    char myChar = request.State.Grid[x.LineIndex];
+                    x.SquareType = myDic[myChar];
+                });
             myGrid.MySpawnActive = !me.SpawnDisabled;
             myGrid.EnemySpawnActive = !enemy.SpawnDisabled;
             return myGrid;

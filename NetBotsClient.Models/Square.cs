@@ -39,6 +39,12 @@ namespace NetBotsClient.Models
             return _grid.Where(selectionFunc).OrderBy(DistanceFrom).FirstOrDefault();
         }
 
+        public int DistanceToClosest(Func<Square, bool> selectionFunc)
+        {
+            var closest = ClosestWhere(selectionFunc);
+            return DistanceFrom(closest);
+        }
+
         public bool IsAdjacentTo(Square otherSquare)
         {
             int xDiff = Math.Abs(otherSquare.X - this.X);

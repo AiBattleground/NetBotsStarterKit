@@ -1,2 +1,2 @@
 [config]
-project = NetBotsClient.Host/NetBotsClient.Host.csproj
+project = Source/NetBotsClient.Host/NetBotsClient.Host.csproj

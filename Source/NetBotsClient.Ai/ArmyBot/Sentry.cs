@@ -25,14 +25,15 @@ namespace NetBotsClient.Ai.ArmyBot
             var sentryPoints = GetSentryPoint(Grid);
             if (sentryPoints.Contains(Square))
             {
-                return new BotletMove(Square.LineIndex, Square.LineIndex);
+                return GetMoveToTarget(Square);
             }
             else
             {
-                var sentryPoint = sentryPoints.FirstOrDefault(x => !Army.Any(y => y.Square == x));
-                if (sentryPoint != null)
+                var armyOccupied = Army.Select(x => x.Square);
+                var unoccupied = sentryPoints.FirstOrDefault(x => !armyOccupied.Contains(x));
+                if (unoccupied != null)
                 {
-                    return GetMoveToTarget(sentryPoint);
+                    return GetMoveToTarget(unoccupied);
                 }
                 else return GetMoveToTarget(Grid.EnemySpawn); //if there are already two at the sentry location, move away.
             }

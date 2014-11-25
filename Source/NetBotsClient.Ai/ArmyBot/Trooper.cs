@@ -19,13 +19,33 @@ namespace NetBotsClient.Ai.ArmyBot
             var targetSquare = GetEnergySqaSquareImClosestTo();
             if (targetSquare == null)
             {
-                targetSquare = Square.ClosestWhere(x => x == SquareType.Energy && x.DistanceFrom(Square) < 20);
-            }
-            if (targetSquare == null)
-            {
-                targetSquare = Grid.EnemySpawn;
+                if (Grid.EnemySpawnActive)
+                {
+                    targetSquare = Grid.EnemySpawn;
+                }
+                else
+                {
+                    targetSquare = FindEmpySpace();
+                }
+                
             }
             return GetMoveToTarget(targetSquare);
+        }
+
+        private Square FindEmpySpace()
+        {
+            Square target = null;
+            var farthest = int.MinValue;
+            foreach (var square in Grid)
+            {
+                var distanceToBot = square.DistanceToClosest(x => x == SquareType.PlayerBot || x == SquareType.EnemyBot);
+                if (distanceToBot > farthest)
+                {
+                    farthest = distanceToBot;
+                    target = square;
+                }
+            }
+            return target;
         }
 
 

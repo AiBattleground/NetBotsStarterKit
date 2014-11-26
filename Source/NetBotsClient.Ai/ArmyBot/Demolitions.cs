@@ -9,20 +9,33 @@ using NetBotsClient.Models;
 
 namespace NetBotsClient.Ai.ArmyBot
 {
-    class Assault : Soldier
+    class Demolitions : Soldier
     {
-        public Assault(Square square, Grid grid) : base(square, grid)
+        public Demolitions(Square square, Grid grid) : base(square, grid)
         {
         }
 
         public override BotletMove GetMove()
         {
-            if (Square.DistanceFrom(Grid.EnemySpawn) < 10 && SquareNextToEdge())
+            if (Square.DistanceFrom(Grid.EnemySpawn) < 2)
+            {
+                return GetMoveToTarget(Grid.EnemySpawn);
+            }
+            else if (Square.DistanceFrom(Grid.EnemySpawn) < 10 && SquareNextToEdge())
             {
                 var edgeSquare = Square.GetAdjacentSquares().FirstOrDefault(x => SquareOnEdge(x) && !TargetsTaken.Contains(x));
                 if (edgeSquare != null)
                 {
                     return GetMoveToTarget(edgeSquare);
+                }
+            }
+            else if (SquareOnEdge(Square))
+            {
+                var currentDistance = Square.DistanceFrom(Grid.EnemySpawn);
+                var nextSquareOnEdge = Square.GetAdjacentSquares().FirstOrDefault(x => SquareOnEdge(x) && x.DistanceFrom(Grid.EnemySpawn) < currentDistance);
+                if (nextSquareOnEdge != null)
+                {
+                    return GetMoveToTarget(nextSquareOnEdge);
                 }
             }
             return GetMoveToTarget(Grid.EnemySpawn);

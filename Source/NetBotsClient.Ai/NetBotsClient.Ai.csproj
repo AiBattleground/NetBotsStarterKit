@@ -39,7 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArmyBot\Assault.cs" />
+    <Compile Include="ArmyBot\Demolitions.cs" />
     <Compile Include="ArmyBot\Trooper.cs" />
     <Compile Include="ArmyBot\Assassain.cs" />
     <Compile Include="ArmyBot\Sentry.cs" />

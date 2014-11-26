@@ -16,7 +16,7 @@ namespace NetBotsClient.Ai.ArmyBot
 
         public static List<Square> GetSentryPoint(Grid grid)
         {
-            var sentryPoints = grid.Where(x => x.IsAdjacentTo(grid.MySpawn) && (x.X == 0 || x.Y == 0)).ToList();
+            var sentryPoints = grid.Where(x => x.IsAdjacentTo(grid.MySpawn) && IsOnEdge(x, grid)).ToList();
             return sentryPoints;
         }
 
@@ -37,6 +37,17 @@ namespace NetBotsClient.Ai.ArmyBot
                 }
                 else return GetMoveToTarget(Grid.EnemySpawn); //if there are already two at the sentry location, move away.
             }
+        }
+
+        public static bool IsOnEdge(Square square, Grid grid)
+        {
+
+            if ((square.X == 0 || square.X == grid.Width - 1) ||
+                square.Y == 0 || square.Y == grid.Height - 1)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

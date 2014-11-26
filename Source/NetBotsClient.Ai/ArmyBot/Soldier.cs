@@ -35,7 +35,13 @@ namespace NetBotsClient.Ai.ArmyBot
                 TargetsTaken.Add(Square);
                 return new BotletMove(Square.LineIndex, Square.LineIndex);
             }
-            var adjacentSquares = Square.GetAdjacentSquares().Shuffle();
+            if (targetSquare == Square)
+            {
+                TargetsTaken.Add(Square);
+                return new BotletMove(Square.LineIndex, Square.LineIndex);
+            }
+            var adjacentSquares = Square.GetAdjacentSquares().ToList();
+            adjacentSquares.Shuffle();
             int shortestDistance = int.MaxValue;
             Square squareToMoveTo = Square;
             foreach (var square in adjacentSquares.Where(x => !TargetsTaken.Contains(x)))

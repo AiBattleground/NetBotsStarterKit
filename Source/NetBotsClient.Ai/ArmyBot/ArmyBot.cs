@@ -29,10 +29,10 @@ namespace NetBotsClient.Ai.ArmyBot
 
         private Soldier GetAssignment(Square square, Grid grid, int armySize, int soldierNum)
         {
-            if (!grid.EnemySpawnActive && grid.MySpawnActive && armySize > grid.Count(x => x == SquareType.EnemyBot))
-                return new Assassain(square, grid);
-            else if (SentriesPosted(grid) && Sentry.GetSentryPoint(grid).Contains(square))
+            if (SentriesPosted(grid) && Sentry.GetSentryPoint(grid).Contains(square))
                 return new Sentry(square, grid);
+            else if (!grid.EnemySpawnActive && grid.MySpawnActive && armySize > grid.Count(x => x == SquareType.EnemyBot) + 5)
+                return new Assassain(square, grid);
             else if (armySize > 6 && (soldierNum == 0 || soldierNum == 1))
                 return new Sentry(square, grid);
             //else if (armySize > 8 && (soldierNum == armySize - 1 ||soldierNum == armySize - 2))

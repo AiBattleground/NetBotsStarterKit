@@ -10,17 +10,18 @@ namespace NetBotsClient.Ai
     {
         private static readonly Random Random = new Random();
 
-        public static IList<T> Shuffle<T>(this IEnumerable<T> source)
+        public static void Shuffle<T>(this IList<T> list)
         {
-            var oldList = source.ToList();
-            var newList = new List<T>();
-            while (oldList.Any())
+            Random rng = new Random();
+            int n = list.Count;
+            while (n > 1)
             {
-                var i = Random.Next(0, oldList.Count - 1);
-                newList.Add(oldList[i]);
-                oldList.RemoveAt(i);
+                n--;
+                int k = rng.Next(n + 1);
+                T value = list[k];
+                list[k] = list[n];
+                list[n] = value;
             }
-            return newList;
         }
     }
 }

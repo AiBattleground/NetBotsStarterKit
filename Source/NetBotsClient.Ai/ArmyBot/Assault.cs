@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Configuration;
 using System.Text;
 using System.Threading.Tasks;
 using NetBots.Web;
@@ -16,6 +17,14 @@ namespace NetBotsClient.Ai.ArmyBot
 
         public override BotletMove GetMove()
         {
+            if (Square.DistanceFrom(Grid.EnemySpawn) < 10 && SquareNextToEdge())
+            {
+                var edgeSquare = Square.GetAdjacentSquares().FirstOrDefault(x => SquareOnEdge(x) && !TargetsTaken.Contains(x));
+                if (edgeSquare != null)
+                {
+                    return GetMoveToTarget(edgeSquare);
+                }
+            }
             return GetMoveToTarget(Grid.EnemySpawn);
             //var meetupPoints = GetMeetupPoints(Grid);
             //var occupiedSquares = Army.Select(x => x.Square);
@@ -38,6 +47,16 @@ namespace NetBotsClient.Ai.ArmyBot
             //        return new BotletMove(Square.LineIndex, nextSquare.LineIndex);
             //    }
             //}
+        }
+
+        private bool SquareNextToEdge()
+        {
+            return (Square.X == 1 || Square.Y == 1 || Square.X == Grid.Width - 2 || Square.Y == Grid.Height - 2);
+        }
+
+        private bool SquareOnEdge(Square square)
+        {
+            return (square.X == 0 || square.Y == 0 || square.X == Grid.Width - 1 || square.Y == Grid.Height - 1);
         }
 
 

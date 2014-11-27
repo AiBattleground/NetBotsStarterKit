@@ -16,7 +16,8 @@ namespace NetBotsClient.Ai.DemoBots
             //only. We will loop through each bot you have and make it run straight
             //toward the enemy spawn.
             var myMoves = new List<BotletMove>();
-            foreach (var bot in game.Grid.Where(x => x == SquareType.PlayerBot))
+            var myBots = GetMyBots(game.Grid);
+            foreach (var bot in myBots)
             {
                 var validMoveLocations = bot.GetAdjacentSquares();
                 var enemySpawn = game.Grid.EnemySpawn;
@@ -26,6 +27,19 @@ namespace NetBotsClient.Ai.DemoBots
             }
             return myMoves;
         }
+
+        private List<Square> GetMyBots(Grid grid)
+        {
+            List<Square> myBots = new List<Square>();
+            foreach (var square in grid)
+            {
+                if (square == SquareType.PlayerBot)
+                {
+                    myBots.Add(square);
+                }
+            }
+            return myBots;
+        } 
 
 
         private Square GetNextSquareToTarget(Square targetSquare, IEnumerable<Square> possibleMoves)

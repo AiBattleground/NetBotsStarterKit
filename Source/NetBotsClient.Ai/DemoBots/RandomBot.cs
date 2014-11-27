@@ -15,7 +15,8 @@ namespace NetBotsClient.Ai.DemoBots
             Random myRandom = new Random();
 
             var myMoves = new List<BotletMove>();
-            foreach (var bot in game.Grid.Where(x => x == SquareType.PlayerBot))
+            var myBots = GetMyBots(game.Grid);
+            foreach (var bot in myBots)
             {
                 var validMoveLocations = bot.GetAdjacentSquares().ToList();
                 var randomNumber = myRandom.Next(0, validMoveLocations.Count);
@@ -25,6 +26,19 @@ namespace NetBotsClient.Ai.DemoBots
             }
             return myMoves;
         }
+
+        private List<Square> GetMyBots(Grid grid)
+        {
+            List<Square> myBots = new List<Square>();
+            foreach (var square in grid)
+            {
+                if (square == SquareType.PlayerBot)
+                {
+                    myBots.Add(square);
+                }
+            }
+            return myBots;
+        } 
 
         private BotletMove CreateMoveFromSquares(Square origin, Square destination)
         {

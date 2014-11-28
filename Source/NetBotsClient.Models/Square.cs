@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using NetBots.Web;
 
 namespace NetBotsClient.Models
 {
@@ -37,6 +38,17 @@ namespace NetBotsClient.Models
         public Square ClosestWhere(Func<Square, bool> selectionFunc)
         {
             return _grid.Where(selectionFunc).OrderBy(DistanceFrom).FirstOrDefault();
+        }
+
+        public Square ClosestOfType(SquareType squareType)
+        {
+            return _grid.Where(x => x == squareType).OrderBy(DistanceFrom).FirstOrDefault();
+        }
+
+        public int DistanceToClosest(SquareType squareType)
+        {
+            var closest = ClosestWhere(x => x == squareType);
+            return DistanceFrom(closest);
         }
 
         public int DistanceToClosest(Func<Square, bool> selectionFunc)
@@ -93,7 +105,31 @@ namespace NetBotsClient.Models
             return !(square == squareType);
         }
 
+        public BotletMove GetMoveTo(Square targetSquare)
+        {
+            if (IsAdjacentTo(targetSquare))
+            {
+                return new BotletMove(this.LineIndex, targetSquare.LineIndex);
+            }
+            else
+            {
+                var distanceToTarget = DistanceFrom(targetSquare);
+                var adjacentSquares = GetAdjacentSquares();
+                var closerSquare = adjacentSquares.FirstOrDefault(x => DistanceFrom(x) < distanceToTarget);
+                if (closerSquare != null)
+                {
+                    return new BotletMove(this.LineIndex, closerSquare.LineIndex);
+                }
+            }
+            return new BotletMove(this.LineIndex, this.LineIndex);
+        }
 
+        public BotletMove GetMoveToClosest(SquareType squareType)
+        {
+            var closest = ClosestOfType(squareType);
+            var order = GetMoveTo(closest);
+            return order;
+        }
     }
 
 

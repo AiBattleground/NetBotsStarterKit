@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExtensionMethods.cs" />
     <Compile Include="GameBoard.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -16,6 +16,45 @@ namespace NetBotsClient.Models
         public Square MySpawn { get; private set; }
         public Square EnemySpawn { get; private set; }
 
+        private List<Square> _myBots = null;
+        public List<Square> MyBots
+        {
+            get
+            {
+                if (_myBots == null)
+                {
+                    _myBots = this.Where(x => x == SquareType.PlayerBot).ToList();
+                }
+                return _myBots.ToList();
+            }
+        }
+
+        private List<Square> _enemyBots = null;
+        public List<Square> EnemyBots
+        {
+            get
+            {
+                if (_enemyBots == null)
+                {
+                    _enemyBots = this.Where(x => x == SquareType.EnemyBot).ToList();
+                }
+                return _enemyBots.ToList();
+            }
+        }
+
+        private List<Square> _energy = null;
+        public List<Square> Energy
+        {
+            get
+            {
+                if (_energy == null)
+                {
+                    _energy = this.Where(x => x == SquareType.Energy).ToList();
+                }
+                return _energy.ToList();
+            }
+        }
+
 
         public Grid(int width, int height, int mySpawnIndex, int enemySpawnIndex, Action<Square> initAction)
         {

@@ -44,7 +44,6 @@
     <Compile Include="ArmyBot\Assassain.cs" />
     <Compile Include="ArmyBot\Sentry.cs" />
     <Compile Include="DemoBots\BerserkerBot.cs" />
-    <Compile Include="ExtensionMethods.cs" />
     <Compile Include="GameStateParser.cs" />
     <Compile Include="IRobot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

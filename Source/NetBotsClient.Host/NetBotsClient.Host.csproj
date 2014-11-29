@@ -40,6 +40,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NetBots.WebModels">
+      <HintPath>..\packages\NetBots.WebModels.1.0.0.0\lib\net40\NetBots.WebModels.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -221,10 +224,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\core\Source\Engine\NetBots.Web\NetBots.Web.csproj">
-      <Project>{96add411-cedb-4089-8e9a-02257175d90f}</Project>
-      <Name>NetBots.Web</Name>
-    </ProjectReference>
     <ProjectReference Include="..\NetBotsClient.Ai\NetBotsClient.Ai.csproj">
       <Project>{29f439f2-6789-4846-a682-7e81abce414d}</Project>
       <Name>NetBotsClient.Ai</Name>

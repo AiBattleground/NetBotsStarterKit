@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using Microsoft.Ajax.Utilities;
-using NetBots.Web;
+using NetBots.WebModels;
 using NetBotsClient.Ai;
 
 namespace NetBotsClient.Host.Controllers

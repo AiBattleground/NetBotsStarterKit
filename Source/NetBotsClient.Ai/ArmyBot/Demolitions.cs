@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net.Configuration;
 using System.Text;
 using System.Threading.Tasks;
-using NetBots.Web;
+using NetBots.WebModels;
 using NetBotsClient.Models;
 
 namespace NetBotsClient.Ai.ArmyBot

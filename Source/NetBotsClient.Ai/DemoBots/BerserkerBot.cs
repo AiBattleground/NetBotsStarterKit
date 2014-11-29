@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using NetBots.Web;
+using NetBots.WebModels;
 using NetBotsClient.Models;
 
 

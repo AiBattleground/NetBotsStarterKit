@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NetBots.Web;
+using NetBots.WebModels;
 using NetBotsClient.Models;
 
 namespace NetBotsClient.Ai.ArmyBot

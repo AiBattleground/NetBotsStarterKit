@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Runtime.InteropServices;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NetBots.Web;
+using NetBots.WebModels;
 using NetBotsClient.Ai;
 using NetBotsClient.Ai.DemoBots;
 using NetBotsClient.Models;

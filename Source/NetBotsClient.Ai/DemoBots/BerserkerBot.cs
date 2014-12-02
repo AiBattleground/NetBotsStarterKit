@@ -27,11 +27,23 @@ namespace NetBotsClient.Ai.DemoBots
             return myMoves;
         }
 
-
-        //This is for demonstration. Here you can see that the grid is a strongly typed two dimensional array.
-        //You can access any square through it's X and Y coordinates. The two alternate versions of GetMyBots
-        //below are commented out, but do the exact same thing.
         private List<Square> GetMyBots(Grid grid)
+        {
+            //For demonstration, we will show you three different way to get all the squares
+            //in a grid with your bots. 
+
+            //You can access any square through it's X and Y coordinates. 
+            return GetMyBotsByForLoop(grid);
+
+            //Or since the grid is Enumerable, you can di it with a foreach loop
+            //return GetMyBotsByForeach(grid);
+
+            //Or just get them directly as a property on the Grid.
+            //return GetMyBotsDirectly(grid);
+        }
+
+        
+        private List<Square> GetMyBotsByForLoop(Grid grid)
         {
             List<Square> myBots = new List<Square>();
             for (int x = 0; x < grid.Width; x++)
@@ -48,8 +60,7 @@ namespace NetBotsClient.Ai.DemoBots
             return myBots;
         }
 
-        //This does the exact same thing as GetMyBots() but does it through a foreach loop.
-        //This is to demonstrate that the Grid is enumerable.
+        
         private List<Square> GetMyBotsByForeach(Grid grid)
         {
             List<Square> myBots = new List<Square>();
@@ -64,8 +75,6 @@ namespace NetBotsClient.Ai.DemoBots
             return myBots;
         }
 
-        //This also does the exact same thing as GetMyBots(), but shows that 
-        //there is a simple property on the grid that will return the bots as well.
         private List<Square> GetMyBotsDirectly(Grid grid)
         {
             return grid.MyBots;

@@ -33,7 +33,7 @@ namespace NetBotsClient.Ai.ArmyBot
                 return new Sentry(square, grid);
             else if (!grid.EnemySpawnActive && grid.MySpawnActive && armySize > grid.Count(x => x == SquareType.EnemyBot) + 5)
                 return new Assassain(square, grid);
-            else if (armySize > 6 && (soldierNum == 0 /*|| soldierNum == 1*/))
+            else if (armySize > 6 && (soldierNum == 0 || soldierNum == 1))
                 return new Sentry(square, grid);
             else if (square.DistanceFrom(grid.EnemySpawn) < 10 && grid.EnemySpawnActive)
                 return new Demolitions(square, grid);

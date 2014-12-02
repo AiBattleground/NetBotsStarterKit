@@ -51,8 +51,7 @@ namespace NetBotsClient.Ai.ArmyBot
 
         private Square GetEnergySqaSquareImClosestTo()
         {
-            var energySquares = Grid.Where(x => x == SquareType.Energy);
-            //var energySquares = Grid.Where(x => x == SquareType.Energy).OrderBy(x => x.DistanceFrom(Square));
+            var energySquares = Grid.Where(x => x == SquareType.Energy).OrderBy(x => x.DistanceFrom(Square));
             foreach (var energySquare in energySquares)
             {
                 var closestGoodGuySquare = energySquare.ClosestWhere(x => x == SquareType.PlayerBot);

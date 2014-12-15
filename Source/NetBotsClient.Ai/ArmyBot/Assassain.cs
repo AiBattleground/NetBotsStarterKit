@@ -10,7 +10,7 @@ namespace NetBotsClient.Ai.ArmyBot
 {
     public class Assassain : Soldier
     {
-        public Assassain(Square square, Grid grid) : base(square, grid)
+        public Assassain(Square square) : base(square)
         {
         }
 

@@ -19,10 +19,10 @@ namespace NetBotsClient.Ai.ArmyBot
             TargetsTaken = new List<Square>();
         }
 
-        protected Soldier(Square square, Grid grid)
+        protected Soldier(Square square)
         {
             Square = square;
-            Grid = grid;
+            Grid = square.Grid;
             Army.Add(this);
         }
 

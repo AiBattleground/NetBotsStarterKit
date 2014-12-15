@@ -11,7 +11,7 @@ namespace NetBotsClient.Ai.ArmyBot
 {
     class Demolitions : Soldier
     {
-        public Demolitions(Square square, Grid grid) : base(square, grid)
+        public Demolitions(Square square) : base(square)
         {
         }
 

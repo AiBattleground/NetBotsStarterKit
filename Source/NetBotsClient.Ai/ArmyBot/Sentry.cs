@@ -10,7 +10,7 @@ namespace NetBotsClient.Ai.ArmyBot
 {
     public class Sentry : Soldier
     {
-        public Sentry(Square square, Grid grid) : base(square, grid)
+        public Sentry(Square square) : base(square)
         {
         }
 

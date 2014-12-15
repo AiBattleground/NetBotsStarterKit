@@ -10,7 +10,7 @@ namespace NetBotsClient.Ai.ArmyBot
 {
     class Trooper : Soldier
     {
-        public Trooper(Square square, Grid grid) : base(square, grid)
+        public Trooper(Square square) : base(square)
         {
         }
 

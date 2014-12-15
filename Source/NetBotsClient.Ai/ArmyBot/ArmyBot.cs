@@ -30,14 +30,14 @@ namespace NetBotsClient.Ai.ArmyBot
         private Soldier GetAssignment(Square square, Grid grid, int armySize, int soldierNum)
         {
             if (SentriesPosted(grid) && Sentry.GetSentryPoint(grid).Contains(square))
-                return new Sentry(square, grid);
+                return new Sentry(square);
             else if (!grid.EnemySpawnActive && grid.MySpawnActive && armySize > grid.Count(x => x == SquareType.EnemyBot) + 5)
-                return new Assassain(square, grid);
+                return new Assassain(square);
             else if (armySize > 6 && (soldierNum == 0 || soldierNum == 1))
-                return new Sentry(square, grid);
+                return new Sentry(square);
             else if (square.DistanceFrom(grid.EnemySpawn) < 10 && grid.EnemySpawnActive)
-                return new Demolitions(square, grid);
-            else return new Trooper(square, grid);
+                return new Demolitions(square);
+            else return new Trooper(square);
         }
 
         private bool SentriesPosted(Grid grid)

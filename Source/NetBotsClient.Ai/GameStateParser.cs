@@ -55,6 +55,8 @@ namespace NetBotsClient.Ai
             myDic.Add(enemyChar, SquareType.EnemyBot);
             myDic.Add('*', SquareType.Energy);
             myDic.Add('.', SquareType.Empty);
+            myDic.Add('x', SquareType.Empty);
+            myDic.Add('X', SquareType.Empty);
 
             return myDic;
         } 

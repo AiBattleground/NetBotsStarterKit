@@ -16,7 +16,7 @@ namespace NetBotsClient.Ai.ArmyBot
 
         public override BotletMove GetMove()
         {
-            var targetSquare = GetEnergySqaSquareImClosestTo();
+            var targetSquare = GetEnergySquareImClosestTo();
             if (targetSquare == null)
             {
                 if (Grid.EnemySpawnActive)
@@ -49,7 +49,7 @@ namespace NetBotsClient.Ai.ArmyBot
         }
 
 
-        private Square GetEnergySqaSquareImClosestTo()
+        private Square GetEnergySquareImClosestTo()
         {
             var energySquares = Grid.Where(x => x == SquareType.Energy).OrderBy(x => x.DistanceFrom(Square));
             foreach (var energySquare in energySquares)

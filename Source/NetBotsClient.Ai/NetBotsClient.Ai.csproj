@@ -48,7 +48,7 @@
   <ItemGroup>
     <Compile Include="ArmyBot\Demolitions.cs" />
     <Compile Include="ArmyBot\Trooper.cs" />
-    <Compile Include="ArmyBot\Assassain.cs" />
+    <Compile Include="ArmyBot\Kamikaze.cs" />
     <Compile Include="ArmyBot\Sentry.cs" />
     <Compile Include="DemoBots\BerserkerBot.cs" />
     <Compile Include="GameStateParser.cs" />

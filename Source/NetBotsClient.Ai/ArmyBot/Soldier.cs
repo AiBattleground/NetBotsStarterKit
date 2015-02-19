@@ -61,5 +61,10 @@ namespace NetBotsClient.Ai.ArmyBot
         {
             return target.DistanceFrom(Square);
         }
+
+        protected bool SquareOnEdge(Square square)
+        {
+            return (square.X == 0 || square.Y == 0 || square.X == Grid.Width - 1 || square.Y == Grid.Height - 1);
+        }
     }
 }

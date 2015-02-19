@@ -67,10 +67,7 @@ namespace NetBotsClient.Ai.ArmyBot
             return (Square.X == 1 || Square.Y == 1 || Square.X == Grid.Width - 2 || Square.Y == Grid.Height - 2);
         }
 
-        private bool SquareOnEdge(Square square)
-        {
-            return (square.X == 0 || square.Y == 0 || square.X == Grid.Width - 1 || square.Y == Grid.Height - 1);
-        }
+        
 
 
         public static IEnumerable<Square> GetMeetupPoints(Grid grid)

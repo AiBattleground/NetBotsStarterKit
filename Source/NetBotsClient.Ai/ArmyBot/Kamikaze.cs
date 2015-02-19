@@ -8,9 +8,9 @@ using NetBotsClient.Models;
 
 namespace NetBotsClient.Ai.ArmyBot
 {
-    public class Assassain : Soldier
+    public class Kamikaze : Soldier
     {
-        public Assassain(Square square) : base(square)
+        public Kamikaze(Square square) : base(square)
         {
         }
 

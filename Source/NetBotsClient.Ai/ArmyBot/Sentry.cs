@@ -16,7 +16,7 @@ namespace NetBotsClient.Ai.ArmyBot
 
         public static List<Square> GetSentryPoint(Grid grid)
         {
-            var sentryPoints = grid.Where(x => x.IsAdjacentTo(grid.MySpawn) && IsOnEdge(x, grid)).ToList();
+            var sentryPoints = grid.Where(x => x.IsAdjacentTo(grid.MySpawn) && (x, grid)).ToList();
             return sentryPoints;
         }
 
